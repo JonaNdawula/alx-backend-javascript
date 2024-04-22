@@ -5,5 +5,6 @@ export default function appendToEachArrayValue(array, appendString) {
     arr.push(`${appendString}${value}`);
     idx++;
   }
+  
   return arr;
 }
