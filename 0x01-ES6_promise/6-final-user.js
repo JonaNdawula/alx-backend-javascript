@@ -9,7 +9,7 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     .then((values) => {
       const resolve = [];
       values.forEach((value) => {
-	if (value.status === 'fulfiled') {
+	if (value.status === 'fulfilled') {
 	  resolve.push(value);
 	} else {
 	  resolve.push({
