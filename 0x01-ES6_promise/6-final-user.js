@@ -9,14 +9,14 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
     .then((values) => {
       const resolve = [];
       values.forEach((value) => {
-	if (value.status === 'fulfilled') {
+        if (value.status === 'fulfilled') {
 	  resolve.push(value);
-	} else {
+        } else {
 	  resolve.push({
 	    status: value.status,
 	    value: `Error: ${value.reason.message}`,
 	  });
-	}
+        }
       });
       return resolve;
     });
