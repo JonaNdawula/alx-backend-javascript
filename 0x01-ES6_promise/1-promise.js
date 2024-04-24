@@ -7,8 +7,9 @@ export default function getFullResponseFromAPI(success) {
         status: 200,
 	body: 'Success',
       });
+    } else {
+      rej(new Error('The fake API is not working currently'));
     }
-    rej(new Error('The fake API is not working currently'));
   });
   return aPromise;
 }
