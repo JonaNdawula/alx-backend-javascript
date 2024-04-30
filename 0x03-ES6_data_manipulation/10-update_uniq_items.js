@@ -3,11 +3,11 @@ const updateUniqueItems = (items) => {
     throw Error('Cannot process');
   }
 
-  items.forEach((value, key) => {
+  for (const [key, value] of items.entries()) {
     if (value === 1) {
       items.set(key, 100);
     }
-  });
+  }
 
   return items;
 };
