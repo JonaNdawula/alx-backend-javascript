@@ -1,4 +1,4 @@
-const displayMessage = (hello) =>{
+const displayMessage = (hello)=>{
   console.log(hello);
 }
 
