@@ -4,4 +4,4 @@ echo "Enter file name"
 
 read file
 
-eslint --fix $file
+npx eslint --fix $file
