@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+npm i eslint@6 --save-dev
+
+## mv .eslintrc.js .eslintrc.cjs
