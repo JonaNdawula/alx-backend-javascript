@@ -13,7 +13,7 @@ app.get('/students', async (request, response) => {
     data = await fs.readFile(process.argv[2], {encoding: 'utf8'});
   } catch(err) {
     console.log(`Error: ${err}`);
-    return response.send('Cannot load the database');
+    return response.send('This is the list of our students\nCannot load the database');
   }
   
   const lines = data.split('\n');
