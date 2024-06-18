@@ -41,7 +41,6 @@ app.get('/students', async (request, response) => {
     responseText = `Number of students ${total}\n${responseText}`;
     response.send(responseText.trim());
   } catch (err) {
-    console.log(`Error: ${err}`);
     response.send('Cannot load the database');
   }
 });
