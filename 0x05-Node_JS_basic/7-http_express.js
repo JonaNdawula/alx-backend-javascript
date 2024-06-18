@@ -1,48 +1,38 @@
 const express = require('express');
 const fs = require('fs').promises;
-
-const port = 1245;
 const app = express();
+const port = 1245;
 
-const countStudents = async (path) => {
-  const data = await fs.readFile(path, 'utf8');
-  const lines = data.split('\n');
-  const students = lines.slice(1).filter((line) => line).map((line) => line.split(',').map((field) => field.trim()));
-  const fields = {};
-  for (const student of students) {
-    if (student.length >= 4) {
-      const field = student[3];
-      const name = student[0];
-      if (!Object.prototype.hasOwnProperty.call(fields, field)) {
-        fields[field] = [];
-      }
-      fields[field].push(name);
-    }
-  }
-
-  return fields;
-};
-
-app.get('/', (request, response) => {
-  response.send('Hello Holberton School!');
+app.get('/', (request, response) =>{
+  res.send('Hello Holberton School!');
 });
 
 app.get('/students', async (request, response) => {
+  let data;
   try {
-    const fields = await countStudents(process.argv[2]);
-    let responseText = 'This is the list of our students\n';
-    let total = 0;
-    for (const field in fields) {
-      if (Object.prototype.hasOwnProperty.call(fields, field)) {
-        responseText += `Number of students in ${field}: ${fields[field].length}. List: ${fields[field].join(', ')}\n`;
-        total += fields[field].length;
-      }
-    }
-    responseText = `Number of students ${total}\n${responseText}`;
-    response.send(responseText.trim());
-  } catch (err) {
-    response.send('Cannot load the database');
+    data = await fs.readFile(process.argv[2], {encoding: 'utf8'});
+  } catch(err) {
+    console.log(`Error: ${err}`);
+    return response.send('This is the list of our students\nCannot load the database');
   }
+  
+  const lines = data.split('\n');
+  const students = { CS: [], SWE: [] };
+  lines.forEach((line) => {
+    const info = line.split(',');
+    if (info[3] == 'CS') {
+     students.CS.push(info[0]);
+    } else if (info[3] === 'SWE') {
+      students.SWE.push(info[0]);
+    }
+  });
+  
+  let resp = 'This is the list of our students\n';
+  resp += `Number of students: ${students.CS.length + students.SWE.length}\n`;
+  resp += `Number of students in CS: ${students.CS.length}. List: ${students.CS.join(', ')}\n`;
+  resp += `Number of students in SWE: ${students.SWE.length}. List: ${students.SWE.join(', ')}\n`;
+
+  response.send(resp);
 });
 
 app.listen(port);
