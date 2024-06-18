@@ -5,7 +5,7 @@ const r1 = readline.createInterface({
   output: process.stdout
 });
 
-console.log(' Welcome to Holberton School, what is your name?');
+console.log('Welcome to Holberton School, what is your name?');
 
 r1.on('line', (input) => {
   console.log(`Your name is: ${input}`);
