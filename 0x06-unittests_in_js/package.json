@@ -4,12 +4,19 @@
   "description": "0. Basic test with Mocha and Node assertion library mandatory Install Mocha using npm:",
   "main": "0-calcul.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha"
+    "test": "./node_modules/.bin/mocha --require @babel/register"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/register": "^7.24.6",
     "mocha": "^10.4.0"
+  },
+  "dependencies": {
+    "chai": "^4.3.4"
   }
 }
