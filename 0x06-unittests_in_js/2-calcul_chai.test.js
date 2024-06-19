@@ -1,5 +1,5 @@
-import { expect } from 'chai';
-import  calculateNumber from './2-calcul_chai.js';
+const { expect } = require('chai');
+const calculateNumber = require('./2-calcul_chai.js');
 
 describe( 'calculateNumber' , () =>{
   it('should return 6 when type is SUM and inputs are 1.4 and 4.5', ()=>{
@@ -13,7 +13,7 @@ describe( 'calculateNumber' , () =>{
     expect(calculateNumber('DIVIDE', 1.4, 4.5)).to.equal(0.2);
   }
   );
-  it('should return Erro  when type is DIVIDE and inputs are 1.4 and 0', () =>{
+  it('should return Error when type is DIVIDE and inputs are 1.4 and 0', () =>{
     expect(calculateNumber('DIVIDE', 1.4, 0)).to.equal('Error');
   }
   );
