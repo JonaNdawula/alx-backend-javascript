@@ -11,7 +11,7 @@ describe('Index page', () => {
 });
 
 describe('Cart page', () => {
-  it('should return correct status code when id is a number', (done) =>{
+  it('should return correct status code 200 when id is a number', (done) =>{
     request('http://localhost:7865/cart/12', (error, response, body) =>{
       if (error) return done(error);
       expect(response.statusCode).to.equal(200);
