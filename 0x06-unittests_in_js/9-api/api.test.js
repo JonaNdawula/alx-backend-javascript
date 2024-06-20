@@ -8,7 +8,9 @@ describe('Index page', () => {
       done();
     });
   });
+});
 
+describe('Cart page', () => {
   it('should return correct status code when id is a number', (done) =>{
     request('http://localhost:7865/cart/12', (error, response, body) =>{
       if (error) return done(error);
