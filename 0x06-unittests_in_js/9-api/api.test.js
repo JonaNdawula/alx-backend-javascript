@@ -18,7 +18,7 @@ describe('Index page', () => {
     });
   });
 
-  it('should return 404 status code when id is not a number', (done) =>{
+  it('should return status code 404 when id is not a number', (done) =>{
     request('http://localhost:7865/cart/hello', (error, response, body) =>{
       if (error) return done(error);
       expect(response.statusCode).to.equal(404);
